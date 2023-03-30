@@ -29,7 +29,16 @@ function startGame() {
   game.font = elementsSize + "px Helvetica";
   game.textAlign = "end";
 
+  //   for (let i = 1; i <= 10; i++) {
+  //     game.fillText(emojis["X"], elementsSize, elementsSize * i);
+  //   }
+  arrayBidimensional();
+}
+
+function arrayBidimensional() {
   for (let i = 1; i <= 10; i++) {
-    game.fillText(emojis["X"], elementsSize, elementsSize * i);
+    for (let j = 1; j <= 10; j++) {
+      game.fillText(emojis["X"], elementsSize * i, elementsSize * j);
+    }
   }
 }
