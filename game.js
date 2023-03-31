@@ -34,13 +34,14 @@ function startGame() {
   const mapRowCols = mapRows.map((row) => row.trim().split(""));
   console.log(mapa, mapRows, mapRowCols);
 
-  for (let row = 1; row <= 10; row++) {
-    for (let col = 1; col <= 10; col++) {
-      game.fillText(
-        emojis[mapRowCols[row - 1][col - 1]],
-        elementsSize * col,
-        elementsSize * row
-      );
-    }
-  }
+  mapRowCols.forEach((row, rowIndex) => {
+    row.forEach((col, colIndex) => {
+      const emoji = emojis[col];
+      const elementPositionX = elementsSize * (colIndex + 1);
+      const elementPositionY = elementsSize * (rowIndex + 1);
+
+      game.fillText(emoji, elementPositionX, elementPositionY);
+      console.log({ row, rowIndex, col, colIndex });
+    });
+  });
 }
