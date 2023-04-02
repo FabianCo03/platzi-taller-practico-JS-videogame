@@ -1,5 +1,9 @@
 const canvas = document.querySelector("#game");
 const game = canvas.getContext("2d");
+
+const teclas = { UP: 38, DOWN: 40, LEFT: 37, RIGHT: 39 };
+window.addEventListener("keydown", playerMoving);
+
 let canvasSize;
 let elementsSize;
 
@@ -17,7 +21,6 @@ function setCanvasSize() {
 
   canvas.setAttribute("width", canvasSize);
   canvas.setAttribute("height", canvasSize);
-
   console.log({ canvasSize, elementsSize });
 
   startGame();
@@ -44,4 +47,41 @@ function startGame() {
       console.log({ row, rowIndex, col, colIndex });
     });
   });
+}
+
+// Movimientos por clicks
+function moveUp() {
+  console.log("Arriba");
+}
+function moveLeft() {
+  console.log("Izquierda");
+}
+function moveRight() {
+  console.log("Derecha");
+}
+function moveDown() {
+  console.log("Abajo");
+}
+
+// Movimientos por teclado
+function playerMoving(evento) {
+  switch (evento.keyCode) {
+    case teclas.UP:
+      moveUp();
+      break;
+
+    case teclas.DOWN:
+      moveDown();
+      break;
+
+    case teclas.RIGHT:
+      moveRight();
+      break;
+
+    case teclas.LEFT:
+      moveLeft();
+      break;
+    default:
+      console.log("Tecla inservible");
+  }
 }
